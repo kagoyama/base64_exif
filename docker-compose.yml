@@ -1,0 +1,32 @@
+version : "3"
+services:
+  web:
+    container_name: ${PROJECT_NAME}_web
+    build: ./docker/web
+    ports:
+      - ${HOST_PORT:-8088}:80
+    privileged: true
+    restart: always
+    volumes:
+      - ./server:/var/www/html
+
+  db:
+    image: mysql:8.0
+    container_name: ${PROJECT_NAME}_db
+    restart: always
+    ports:
+      - ${HOST_DB_PORT:-4307}:3306
+    volumes:
+      - db:/var/lib/mysql
+      - ./docker/db/conf.d:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${PROJECT_NAME}_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_TCP_PORT=3306
+    platform: linux/x86_64
+
+volumes:
+  db:
+    name: ${PROJECT_NAME}_db
