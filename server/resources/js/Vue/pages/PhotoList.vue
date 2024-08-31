@@ -8,14 +8,11 @@
             <RouterLink :to="{name:'PhotoDetail', params: {photoId:Number(val.id)}}">
                 <Image :photo="val" />
             </RouterLink>
-            <span>{{ val.id }}</span>
         </li>
     </ul>
 </template>
 
 <script>
-import axios from 'axios';
-import globalFunction from '../../global/globalFunction';
 import Title from '../components/Title.vue';
 import Image from '../components/Image.vue';
 
@@ -32,9 +29,6 @@ export default {
                 console.log(response.data)
                 this.photos = response.data
             })
-        },
-        deepCopy(value) {
-            return globalFunction.deepCopy(value);
         }
     },
     components: {

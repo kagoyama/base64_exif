@@ -39,8 +39,6 @@ class PhotosService
         $photo = $this->_photosRepository->getPhotoDetail($id);
         // 画像に保存先のパスを加える
         $photo->upload_name = self::setUploadPath($photo->user_id) . $photo->upload_name;
-        // $photo->userのユーザー情報を入れ直す
-        $photo->user_name = $photo->user->name;
         // https://www.google.com/maps?q=35.6812405,139.7649361
         $photo->gps_url = ($photo->gps !== null) ? 'https://www.google.com/maps?output=embed&t=m&q=' . $photo->gps : '';
         return $photo;

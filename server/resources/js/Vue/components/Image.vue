@@ -14,7 +14,6 @@
         </div>
         <template v-if="this.isNotListPage">
             <div>撮影日：{{ this.photo.shot_date }}</div>
-            <div>投稿者：{{ this.photo.user_name }}さん</div>
         </template>
 
         <div
@@ -25,7 +24,7 @@
                 v-if="this.photo.gps_url !== '' && this.$route.name === 'PhotoDetail'"
                 :src="this.photo.gps_url"
                 width="100%"
-                height="auto"
+                height="500px"
                 style="border:0;"
             />
         </div>
@@ -33,7 +32,6 @@
 </template>
 
 <script>
-import globalFunction from '../../global/globalFunction';
 export default {
     data() {
         return {
@@ -49,9 +47,6 @@ export default {
         },
         setIsNotListPage() {
             this.isNotListPage = (this.$route.path.match(/list$/)) ? false : true;
-        },
-        setDateLocale(date) {
-            return globalFunction.setDateLocale(date);
         },
         getImageUrl(fileName){
             return globalFunction.getImageUrl(fileName);

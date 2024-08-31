@@ -31,7 +31,6 @@
 
 <script>
 import Title from '../components/Title.vue';
-import axios from 'axios';
 
 export default {
     data () {
@@ -91,7 +90,7 @@ export default {
                     const { base64File } = result;
                     this.images.push(base64File);
                     // deepcopyしないと全てのラジオボタンが同時に更新される
-                    const uploadImage = this.deepCopy(this.uploadImagesColumns);
+                    const uploadImage = globalFunction.deepCopy(this.uploadImagesColumns);
                     uploadImage.base64_encoded = base64File;
                     uploadImage.user_id = this.user_id;
                     this.uploadImages.push(uploadImage);
@@ -109,9 +108,6 @@ export default {
                 reader.onload = () => resolve(reader.result)
                 reader.onerror = error => reject(error)
             })
-        },
-        deepCopy(value) {
-            return JSON.parse(JSON.stringify(value));
         }
     },
     components: {

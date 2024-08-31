@@ -22,7 +22,6 @@
 
 <script>
 import Image from '../components/Image.vue';
-import globalFunction from '../../global/globalFunction';
 
 export default {
     data() {
@@ -40,13 +39,6 @@ export default {
                 this.photo = response.data
                 console.log(response.data)
             })
-        },
-        setDateLocale(date)
-        {
-            return globalFunction.setDateLocale(date);
-        },
-        getImageUrl(fileName){
-            return globalFunction.getImageUrl(fileName);
         },
     },
     components: {

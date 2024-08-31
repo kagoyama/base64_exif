@@ -1,7 +1,6 @@
 <template>
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <h1 class="text-4xl font-bold inline-block">Photo</h1>
             <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <span v-for="(val, key) in this.routes" :key="key">
                     <RouterLink v-if="val.props === undefined" :to="val.path">{{ val.name }}</RouterLink>
