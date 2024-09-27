@@ -1,7 +1,7 @@
 version : "3"
 services:
   web:
-    container_name: ${PROJECT_NAME}_web
+    container_name: ${PROJECT_NAME:-exif}_web
     build: ./docker/web
     ports:
       - ${HOST_PORT:-8088}:80
@@ -12,7 +12,7 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: ${PROJECT_NAME}_db
+    container_name: ${PROJECT_NAME:-exif}_db
     restart: always
     ports:
       - ${HOST_DB_PORT:-4307}:3306
@@ -21,7 +21,7 @@ services:
       - ./docker/db/conf.d:/etc/mysql/conf.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=${PROJECT_NAME}_db
+      - MYSQL_DATABASE=${PROJECT_NAME:-exif}_db
       - MYSQL_USER=user
       - MYSQL_PASSWORD=user
       - MYSQL_TCP_PORT=3306
@@ -29,4 +29,4 @@ services:
 
 volumes:
   db:
-    name: ${PROJECT_NAME}_db
+    name: ${PROJECT_NAME:-exif}_db

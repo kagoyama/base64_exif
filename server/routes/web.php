@@ -13,7 +13,7 @@ use App\Http\Controllers\PhotoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::controller(PhotoController::class)->prefix('photo')->group(function() {
+Route::controller(PhotoController::class)->group(function() {
     Route::get('/exif/{photoId}', 'getPhotoExif');
 });
 Route::get('/{any?}', function () {

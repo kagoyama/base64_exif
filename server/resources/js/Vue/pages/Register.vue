@@ -20,6 +20,7 @@
             <template v-else-if="data.includes('video/')">
                 <video controls :src="data"></video>
             </template>
+            <!-- {{ data }} -->
         </div>
     </div>
     <button
@@ -69,7 +70,7 @@ export default {
             this.isLoading = true;
             // promiseを使って非同期処理を並行して実行
             const fileReadPromises = files.map((file, index) => {
-                if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'video/mp4') {
+                if (/*file.type === 'image/webp' ||*/ file.type === 'image/jpeg' || file.type === 'video/mp4') {
                     return this.formatBase64(file).then(base64File => {
                         // indexを含むことでファイルの順序を保存
                         return { index, base64File };
@@ -78,7 +79,7 @@ export default {
                         return null;
                     });
                 } else {
-                    alert('pngまたはjpegのみ登録可能です');
+                    alert('jpegまたはmp4のみ登録可能です');
                     return null;
                 }
             });

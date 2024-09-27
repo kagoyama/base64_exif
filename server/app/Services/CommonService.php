@@ -52,7 +52,7 @@ class CommonService
     }
 
     /**
-     * GPS座標を数値に変換する
+     * GPS座標を数値に変換する by chatGpt
      *
      * @param array $gps GPS座標
      * @param string $ref 方向参照（N, S, E, W）
@@ -69,7 +69,7 @@ class CommonService
     }
 
     /**
-     * DMS（度分秒）形式のデータを10進数に変換
+     * DMS（度分秒）形式のデータを10進数に変換 by chatGpt
      *
      * @param string $dms 度分秒
      * @return float
