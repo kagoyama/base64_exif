@@ -18,7 +18,7 @@ data:image/jpeg;base64,/9j/4SBrRXhpZgAATU0AKgAAAAgADAEAAAMAAAABD6AAAAEBA...
 <img src="data:image/jpeg;base64,/9j/4SBrRXhpZgAATU0AKgAAAAgADAEAAAMAAAABD6AAAAEBA...."/>
 ```
 - ただしこの場合、キャッシュはされなくなる（されにくくなる？）
-- 元のデータより30%ほどサイズが増える
+- 元のデータより33%ほどサイズが増える
 ### base64_decode
 1. encodeされたデータを元の画像データ（バイナリデータ）に戻す
 

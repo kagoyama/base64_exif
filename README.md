@@ -17,6 +17,19 @@ $ docker exec -it exif_web bash
 
 // コンテナ内
 # composer install
+```
+`server/.env`のDB項目を以下に変更
+```
+# docker db
+DB_CONNECTION=mysql
+DB_HOST=exif_db
+DB_PORT=3306
+DB_DATABASE=exif_db
+DB_USERNAME=user
+DB_PASSWORD=user
+```
+`migrate`実行
+```
 # php artisan migrate
 ```
 4. `node_modules`作成  
@@ -28,7 +41,7 @@ $ npm install
 $ yarn install
 ```
 
-4. `vite`を起動する
+5. `vite`を起動する
 ```
 $ npm run dev
 または
