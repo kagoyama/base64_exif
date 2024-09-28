@@ -18,7 +18,12 @@ $ docker exec -it exif_web bash
 // コンテナ内
 # composer install
 ```
-`server/.env`のDB項目を以下に変更
+4. `server/.env`をつくる
+```
+# cp .env.example .env
+# php artisan key:generate
+```
+`server/.env`のDB項目が以下であること確認
 ```
 # docker db
 DB_CONNECTION=mysql
@@ -32,7 +37,7 @@ DB_PASSWORD=user
 ```
 # php artisan migrate
 ```
-4. `node_modules`作成  
+5. `node_modules`作成  
 ※以降はホストPCで行ってください
 ```
 $ cd server
@@ -41,7 +46,7 @@ $ npm install
 $ yarn install
 ```
 
-5. `vite`を起動する
+6. `vite`を起動する
 ```
 $ npm run dev
 または
